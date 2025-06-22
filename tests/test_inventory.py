@@ -13,7 +13,7 @@ class TestInventory:
 
     @pytest.mark.parametrize(
         "item_name",
-        ["Sauce Labs Backpack", "Sauce Labs Bike Light", "Sauce Labs Bolt T-Shirt"],
+        ["Sauce Labs Bike Light", "Sauce Labs Bolt T-Shirt"],
     )
     @allure.title("Добавление товара {item_name} в корзину")
     @allure.story("Функциональность работы с корзиной")

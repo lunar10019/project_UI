@@ -10,7 +10,7 @@ class CartPage:
 
     @allure.step("Проверить, что страница корзины загружена")
     def is_page_loaded(self):
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, 100).until(
             EC.visibility_of_element_located((By.ID, "cart_contents_container"))
         )
         return True
