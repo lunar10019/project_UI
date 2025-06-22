@@ -7,9 +7,6 @@ pipeline {
             steps {
                 sh 'git config --global --add safe.directory /var/jenkins_home/workspace/project_api_tests'
                 sh 'python3 -m pip install -r requirements.txt --break-system-packages'
-
-                sh 'python3 -m pip install webdriver-manager --upgrade'
-                sh 'python3 -m pip install packaging'
             }
         }
 
