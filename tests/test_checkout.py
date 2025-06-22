@@ -25,13 +25,18 @@ class TestCheckout:
 
         assert checkout_page.is_order_complete()
 
-    @pytest.mark.parametrize("first_name,last_name,zip_code", [
-        ("", "Doe", "12345"),
-        ("John", "", "12345"),
-        ("John", "Doe", ""),
-        ("", "", "")
-    ])
-    @allure.title("Попытка оформления с неполными данными: {first_name}, {last_name}, {zip_code}")
+    @pytest.mark.parametrize(
+        "first_name,last_name,zip_code",
+        [
+            ("", "Doe", "12345"),
+            ("John", "", "12345"),
+            ("John", "Doe", ""),
+            ("", "", ""),
+        ],
+    )
+    @allure.title(
+        "Попытка оформления с неполными данными: {first_name}, {last_name}, {zip_code}"
+    )
     @allure.story("Негативные сценарии оформления заказа")
     def test_checkout_with_missing_info(self, login, first_name, last_name, zip_code):
         inventory_page = InventoryPage(login)

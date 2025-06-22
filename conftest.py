@@ -8,6 +8,16 @@ import os
 from datetime import datetime
 
 
+def pytest_addoption(parser):
+    parser.addoption("--browser", default="chrome")
+    parser.addoption("--drivers", default=os.path.expanduser("~/Downloads/drivers"))
+    parser.addoption(
+        "--base_url",
+        action="store",
+        default="https://www.saucedemo.com/",
+    )
+
+
 @pytest.fixture(scope="function")
 def driver():
     options = webdriver.ChromeOptions()
@@ -18,7 +28,6 @@ def driver():
     driver = webdriver.Chrome(
         service=Service(ChromeDriverManager().install()), options=options
     )
-    driver.maximize_window()
     yield driver
     driver.quit()
 
