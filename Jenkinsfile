@@ -21,11 +21,5 @@ pipeline {
                 allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
             }
         }
-
-        stage('Archive HTML Report') {
-            steps {
-                archiveArtifacts artifacts: 'report.html', fingerprint: true
-            }
-        }
     }
 }
