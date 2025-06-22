@@ -7,8 +7,6 @@ pipeline {
             steps {
                 sh 'git config --global --add safe.directory /var/jenkins_home/workspace/project_api_tests'
                 sh 'python3 -m pip install -r requirements.txt --break-system-packages'
-                sh 'wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
-                sh 'sudo apt install ./google-chrome-stable_current_amd64.deb -y'
             }
         }
 
